@@ -1,10 +1,20 @@
 package br.com.infnet.veiculos.carro;
 public class Veiculo {
 
+	//tipo vindo do hash
+	
 	private String chassi;
+	private String cor;
 	private double preco;
 		
-	//getters and setters
+	
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+		
 	public String getChassi() {
 		return chassi;
 	}
@@ -17,5 +27,8 @@ public class Veiculo {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
+		
+
 	
 }
