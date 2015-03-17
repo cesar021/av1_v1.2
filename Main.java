@@ -1,8 +1,12 @@
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.infnet.loja.Loja;
-import br.com.infnet.veiculos.carro.Veiculo;
+import br.edu.infnet.Loja;
+import br.edu.infnet.Tipo;
+import br.edu.infnet.TipoVeiculo;
+import br.edu.infnet.Veiculo;
+import br.edu.infnet.enums.Cambio;
+import br.edu.infnet.enums.Cor;
 
 public class Main {
 
