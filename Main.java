@@ -1,13 +1,13 @@
+import java.util.HashMap;
+import java.util.Map;
+
 import br.edu.infnet.Cor;
-import br.edu.infnet.Especificacao;
 import br.edu.infnet.Loja;
 import br.edu.infnet.Montadora;
 import br.edu.infnet.Tipo;
 import br.edu.infnet.TipoVeiculo;
 import br.edu.infnet.Veiculo;
 import br.edu.infnet.Cambio;
-
-
 
 public class Main {
 
@@ -28,11 +28,46 @@ public class Main {
 		
 		Veiculo veiculo = new Veiculo(TipoVeiculo.CARRO, "000001", 70000.00);
 		
-		veiculo.setEspecificacao(new Especificacao(Montadora.BMW, "X1", Tipo.SUV, Cor.PRETO, 2.0, Cambio.AUTOMATICO));
+		Map<String, String> especificacao = new HashMap<String, String>();
 		
-		loja.adicionarCarro(veiculo);
+		especificacao.put("MONTADORA", "BMW");
+		especificacao.put("MODELO", "X1");
+		especificacao.put("TIPO", Tipo.SUV.name());
+		especificacao.put("COR", Cor.PRETO.name());
+		especificacao.put("MOTORIZACAO", "2.0");
+		especificacao.put("CAMBIO", Cambio.AUTOMATICO.name());
+		
+		veiculo.setEspecificacao(especificacao);
+		
+		loja.adicionarVeiculo(veiculo);
 		
 		System.out.println("Quantidade de veículo no estoque: " + loja.getEstoqueVeiculos().length);
+		
+		veiculo = new Veiculo(TipoVeiculo.MOTO, "000002", 27000.00);
+		
+		especificacao = new HashMap<String, String>();
+		
+		especificacao.put("MONTADORA", "YAMAHA");
+		especificacao.put("MODELO", "XJ6");
+		especificacao.put("TIPO", Tipo.ESPORTIVO.name());
+		especificacao.put("COR", Cor.PRETO.name());
+		especificacao.put("CILINDRADA", "600");
+		especificacao.put("CAPACIDADETANK", "17.3");
+		
+		veiculo.setEspecificacao(especificacao);
+		
+		loja.adicionarVeiculo(veiculo);
+		
+		System.out.println("");
+		
+		// Listando todos os veículos do estoque
+		loja.listarEstoquedeVeiculos(null);
+		
+		// Listando apenas os carros do estoque
+		loja.listarEstoquedeVeiculos(TipoVeiculo.CARRO);
+		
+		// Listando apenas as motos do estoque
+		loja.listarEstoquedeVeiculos(TipoVeiculo.MOTO);
 	}
 
 }
