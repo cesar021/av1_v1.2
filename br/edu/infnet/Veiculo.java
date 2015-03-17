@@ -1,20 +1,23 @@
 package br.edu.infnet;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Veiculo {
 
 	private TipoVeiculo tipoVeiculo;
 	private String chassi;
 	private Double preco;
 	
-	private Especificacao especificacao;
-
+	private Map<String, String> especificacao;
+	
 	public Veiculo(TipoVeiculo tipoVeiculo, String chassi, Double preco) {
 		
 		this.tipoVeiculo = tipoVeiculo;
 		this.chassi = chassi;
 		this.preco = preco;
 		
-		this.especificacao = new Especificacao();
+		this.especificacao = new HashMap<String, String>();
 		
 	}
 	
@@ -42,12 +45,12 @@ public class Veiculo {
 		this.preco = preco;
 	}
 
-	public Especificacao getEspecificacao() {
-		return especificacao;
+	public void setEspecificacao(Map<String, String> especificacao) {
+		this.especificacao = especificacao;
 	}
 
-	public void setEspecificacao(Especificacao especificacao) {
-		this.especificacao = especificacao;
+	public Map<String, String> getEspecificacao() {
+		return especificacao;
 	}
 	
 	
