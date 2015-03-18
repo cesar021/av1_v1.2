@@ -1,12 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import br.edu.infnet.Cor;
 import br.edu.infnet.Loja;
+import br.edu.infnet.Montadora;
 import br.edu.infnet.Tipo;
 import br.edu.infnet.TipoVeiculo;
 import br.edu.infnet.Veiculo;
-import br.edu.infnet.enums.Cambio;
-import br.edu.infnet.enums.Cor;
+import br.edu.infnet.Cambio;
 
 public class Main {
 
@@ -67,6 +68,42 @@ public class Main {
 		
 		// Listando apenas as motos do estoque
 		loja.listarEstoquedeVeiculos(TipoVeiculo.MOTO);
+		
+		// Pesquisando veiculos com 1 atributo
+		System.out.println("*****************************************");
+		System.out.println("Pesquisando veiculos com MONTADORA YAMAHA");
+		System.out.println("*****************************************\n");
+		System.out.println("TIPO\tCHASSI");
+		for (Veiculo pesqVeiculo : loja.pesquisarVeiculo("MONTADORA=YAMAHA;")) {
+			
+			System.out.println(pesqVeiculo.getTipoVeiculo() + "\t" + pesqVeiculo.getChassi());
+			
+		}
+		
+		// Pesquisando veiculos com 2 atributo existente
+		System.out.println("*********************************************************");
+		System.out.println("Pesquisando veiculos com MONTADORA YAMAHA e CHASSI 000002");
+		System.out.println("*********************************************************\n");
+		System.out.println("TIPO\tCHASSI");
+		for (Veiculo pesqVeiculo : loja.pesquisarVeiculo("MONTADORA=YAMAHA;CHASSI=000002;")) {
+			
+			System.out.println(pesqVeiculo.getTipoVeiculo() + "\t" + pesqVeiculo.getChassi());
+			
+		}
+		
+		// Pesquisando veiculos com 1 atributo não existente
+		System.out.println("*********************************************************");
+		System.out.println("Pesquisando veiculos com MONTADORA YAMAHA e CHASSI 000003");
+		System.out.println("*********************************************************\n");
+		System.out.println("TIPO\tCHASSI");
+		for (Veiculo pesqVeiculo : loja.pesquisarVeiculo("MONTADORA=YAMAHA;CHASSI=000003;")) {
+			
+			System.out.println(pesqVeiculo.getTipoVeiculo() + "\t" + pesqVeiculo.getChassi());
+			
+		}
+		
+		loja.salvarEstoque("estoque.txt");
+
 	}
 
 }
