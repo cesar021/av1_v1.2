@@ -53,7 +53,18 @@ public class Veiculo {
 		return especificacao;
 	}
 	
-	
+	public Map<String, String> getVeiculo() {
+		
+		Map<String, String> mapVeiculo = new HashMap<String, String>();
+		
+		mapVeiculo.put("TIPOVEICULO", this.tipoVeiculo.name());
+		mapVeiculo.put("CHASSI", this.chassi);
+		mapVeiculo.put("PRECO", this.preco.toString());
+		
+		mapVeiculo.putAll(this.especificacao);
+		
+		return mapVeiculo;
+	}
 	
 	
 }
